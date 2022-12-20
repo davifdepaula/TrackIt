@@ -36,7 +36,7 @@ function Hoje() {
       return (
       habits.map((habit, index) => {
         return (
-          <HabitsContent key = {index} data-test="today-habit-container">
+          <HabitsContent key = {index} data-test="habit-container">
             <Title>
               <div data-test="today-habit-name" >{habit.name}</div>
               <Icon color = {habit.done? ('#8FC549') : ('#666666')}>
@@ -60,15 +60,15 @@ function Hoje() {
 function showSubTitle(){
   if(conclud === 0){
     return (
-      <SubTitle data-test="today-counter">
-        <div className='notConclud'>Nenhum hábito concluído ainda</div>
+      <SubTitle>
+        <div data-test="today-counter" className='notConclud'>Nenhum hábito concluído ainda</div>
       </SubTitle>
     )
   }
 
   return (
-    <SubTitle data-test="today-counter">
-      <div className='conclud'>
+    <SubTitle>
+      <div data-test="today-counter" className='conclud'>
         {parseInt((conclud/habits.length)*100)}% dos hábitos concluídos
       </div>
     </SubTitle>

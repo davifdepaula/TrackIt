@@ -123,13 +123,17 @@ function Habitos() {
 
   function habitDelet(id){
     const url = `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`
-    axios.delete(url, config)
-      .then(response => {
-        const temp =  habits.filter((habit) => {
-          if(habit.id !== id) return habit
-        })
+
+   if( window.confirm('Deseja mesmo deletar o hábito')) {
+      axios.delete(url, config)
+        .then(response => {
+          const temp =  habits.filter((habit) => {
+            if(habit.id !== id) return habit
+          })
       })
-      .catch(error => console.log(error.response.data.message))
+        .catch(error => console.log(error.response.data.message))
+    }
+
   }
 
   function showHabits(){
