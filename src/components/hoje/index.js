@@ -70,7 +70,7 @@ function showSubTitle(){
   return (
     <SubTitle>
       <div data-test="today-counter" className='conclud'>
-        {parseInt((conclud/habits.length)*100)}% dos hábitos concluídos
+        <span>{parseInt((conclud/habits.length)*100)}%</span> dos hábitos concluídos
       </div>
     </SubTitle>
   )

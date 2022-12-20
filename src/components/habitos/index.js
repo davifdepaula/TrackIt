@@ -8,7 +8,7 @@ const weekDays = [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ]
 
 function Habitos() {
   const {user, habits, setHabits} = useContext(UserContext)
-  const {loading} = useContext(LoadingContext)
+  const {loading, setLoading} = useContext(LoadingContext)
   const [showFormBox, setShowFormBox] = useState(false)
   const [name, setName] = useState('')
   const [days, setDays] = useState([])
@@ -45,12 +45,14 @@ function Habitos() {
     e.preventDefault()
     const url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits"
     if(!name) return alert('É necessario nomear o hábito!')
+    setLoading(true)
     axios.post(url, {name, days}, config)
       .then(response => {
         setHabits([...habits, response.data])
         setName("")
         setDays([])
         setShowFormBox(false)
+        setLoading(false)
       })
       .catch(error => console.log(error.response.data.message))
   }
@@ -153,7 +155,7 @@ function Habitos() {
             <div className='Habitbuttons'>
                 {weekDays.map((day, index) => 
                 <SelectButton color = {habit.days? (habit.days.includes(index)? ('#CFCFCF'):('#FFFFFF')) : (null)} >
-                  <button data-test="habit-day" key = {index}> {day} </button> 
+                  <button data-test="habit-day" disabled= {loading} key = {index}> {day} </button> 
                 </SelectButton>)}                                
               </div>
           </HabitsContent>

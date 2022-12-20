@@ -59,10 +59,6 @@ export const RegisterContent = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-
-            TailSpin {
-                height: 12px;
-            }
         }
     }
 `
