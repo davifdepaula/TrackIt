@@ -21,6 +21,7 @@ export const HabitsContainer = styled.div`
 `
 export const Top =  styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
@@ -77,5 +78,43 @@ export const Title = styled.div`
     ion-icon {
         cursor: pointer;
     }
+`
 
+export const SubTitle = styled.div`
+    margin-top: 10px;
+    .notConclud {
+        font-family: 'Lexend Deca';
+        color: #BABABA;
+        font-size: 18px;
+    }
+
+    .conclud {
+        font-family: 'Lexend Deca';
+        color: #8FC549;
+        font-size: 18px;
+    }
+`
+
+export const Icon = styled.div`
+    // background: ${props => props.color}
+
+    ion-icon {
+        color: ${props => props.color};
+    }
+`
+
+
+export const Sequence = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    span {
+        color: ${props => props.color}
+    }
+
+    div {
+        font-family: 'Lexend Deca';
+        color: #666666;
+        font-size: 12px;
+    }
 `

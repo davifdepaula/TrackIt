@@ -18,8 +18,8 @@ function Menu() {
     return (
         <MenuContainer>
             <MenuContent data-test="menu">
-                <button onClick={() => navigate("/habitos")}>Hábitos</button>
-                <button className='circular' onClick = {() => navigate("/hoje")} data-test="today">
+                <button onClick={() => navigate("/habitos")} data-test="habit-link">Hábitos</button>
+                <button className='circular' onClick = {() => navigate("/hoje")} data-test="today-link">
                     <CircularProgressbar 
                         styles={buildStyles({
                         textColor: "#fff",
