@@ -36,17 +36,17 @@ function Hoje() {
       return (
       habits.map((habit, index) => {
         return (
-          <HabitsContent key = {index}>
+          <HabitsContent key = {index} data-test="today-habit-container">
             <Title>
-              <div>{habit.name}</div>
+              <div data-test="today-habit-name" >{habit.name}</div>
               <Icon color = {habit.done? ('#8FC549') : ('#666666')}>
-                <div onClick={() => handleConcludSubmit(habit)}><ion-icon name="checkbox-outline"></ion-icon></div>
+                <div onClick={() => handleConcludSubmit(habit)} data-test="today-habit-check-btn"><ion-icon name="checkbox-outline"></ion-icon></div>
               </Icon>
             </Title>
 
             <Sequence color = {habit.done? ('#8FC549') : ('#666666')} >
-              <div>Sequência atual: <span>{habit.currentSequence} dias</span></div>
-              <div>Seu recorde: {habit.highestSequence} dias</div>
+              <div data-test="today-habit-sequence" >Sequência atual: <span>{habit.currentSequence} dias</span></div>
+              <div data-test="today-habit-record" >Seu recorde: {habit.highestSequence} dias</div>
 
             </Sequence>
 
@@ -60,14 +60,14 @@ function Hoje() {
 function showSubTitle(){
   if(conclud === 0){
     return (
-      <SubTitle>
+      <SubTitle data-test="today-counter">
         <div className='notConclud'>Nenhum hábito concluído ainda</div>
       </SubTitle>
     )
   }
 
   return (
-    <SubTitle>
+    <SubTitle data-test="today-counter">
       <div className='conclud'>
         {parseInt((conclud/habits.length)*100)}% dos hábitos concluídos
       </div>
@@ -95,7 +95,7 @@ function handleConcludSubmit(habit){
   return (
     <HabitsContainer>
       <Top>
-        <div>{weekDay}, {day}/{month}</div>
+        <div data-test="today">{weekDay}, {day}/{month}</div>
         {showSubTitle()}
       </Top>
       {showHabits()}

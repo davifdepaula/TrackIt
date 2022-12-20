@@ -77,14 +77,15 @@ function Habitos() {
   function showForm(){
     if(showFormBox){
       return(
-        <FormBox>
+        <FormBox data-test="habit-create-container">
             <form>
-              <input value={name} placeholder='nome do hábito' onChange={ (e) => setName(e.target.value)}/>
+              <input data-test="habit-name-input" value={name} placeholder='nome do hábito' onChange={ (e) => setName(e.target.value)}/>
 
               <div className='buttons'>
                 {weekDays.map((day, index) => 
                 <SelectButton color = {days.includes(index)? ('#CFCFCF'):('#FFFFFF')} >
                   <button 
+                    data-test="habit-day"
                     key = {index} 
                     onClick={(e) => selectDays(index, e)}>{day}</button> 
                 </SelectButton>)}
@@ -93,11 +94,11 @@ function Habitos() {
               
               <div className='submitButtons'>
 
-                <span onClick={cancelBox}>
+                <span data-test="habit-create-cancel-btn" onClick={cancelBox}>
                   Cancelar
                 </span> 
 
-                <button onClick={(e) => handleSubmit(e)}>
+                <button data-test="habit-create-save-btn" onClick={(e) => handleSubmit(e)}>
                   Salvar
                 </button>
 
@@ -124,11 +125,11 @@ function Habitos() {
       return (
       habits.map((habit, index) => {
         return (
-          <HabitsContent key = {index}>
+          <HabitsContent data-test="habit-container" key = {index}>
             <Title>
-              <div>{habit.name}</div>
+              <div data-test="habit-name" >{habit.name}</div>
 
-              <div onClick={() => habitDelet(habit.id)}>
+              <div data-test="habit-delete-btn" onClick={() => habitDelet(habit.id)}>
                 <ion-icon name="trash-outline"></ion-icon>
               </div>
             </Title>
@@ -136,7 +137,7 @@ function Habitos() {
             <div className='Habitbuttons'>
                 {weekDays.map((day, index) => 
                 <SelectButton color = {habit.days.includes(index)? ('#CFCFCF'):('#FFFFFF')} >
-                  <button key = {index}> {day} </button> 
+                  <button data-test="habit-day" key = {index}> {day} </button> 
                 </SelectButton>)}                                
               </div>
           </HabitsContent>
@@ -149,7 +150,7 @@ function Habitos() {
     <HabitsContainer>
       <Top>
         <div>Meus hábitos</div>
-        <button onClick={() => {setShowFormBox(true)}}>+</button>
+        <button data-test="habit-create-btn" onClick={() => {setShowFormBox(true)}}>+</button>
       </Top>
 
       {showForm()}
