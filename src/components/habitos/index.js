@@ -136,7 +136,7 @@ function Habitos() {
 
             <div className='Habitbuttons'>
                 {weekDays.map((day, index) => 
-                <SelectButton color = {habit.days.includes(index)? ('#CFCFCF'):('#FFFFFF')} >
+                <SelectButton color = {habit.days? (habit.days.includes(index)? ('#CFCFCF'):('#FFFFFF')) : (null)} >
                   <button data-test="habit-day" key = {index}> {day} </button> 
                 </SelectButton>)}                                
               </div>
