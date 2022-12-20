@@ -44,11 +44,13 @@ function Habitos() {
   function handleSubmit(e){
     e.preventDefault()
     const url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits"
+    if(!name) return alert('É necessario nomear o hábito!')
     axios.post(url, {name, days}, config)
       .then(response => {
         setHabits([...habits, response.data])
         setName("")
         setDays([])
+        setShowFormBox(false)
       })
       .catch(error => console.log(error.response.data.message))
   }
@@ -79,7 +81,12 @@ function Habitos() {
       return(
         <FormBox data-test="habit-create-container">
             <form>
-              <input data-test="habit-name-input" value={name} placeholder='nome do hábito' onChange={ (e) => setName(e.target.value)}/>
+              <input 
+                data-test="habit-name-input" 
+                value={name} 
+                placeholder='nome do hábito' 
+                onChange={ (e) => setName(e.target.value)}
+                disabled = {loading}/>
 
               <div className='buttons'>
                 {weekDays.map((day, index) => 
@@ -87,18 +94,23 @@ function Habitos() {
                   <button 
                     data-test="habit-day"
                     key = {index} 
-                    onClick={(e) => selectDays(index, e)}>{day}</button> 
+                    onClick={(e) => selectDays(index, e)}
+                    disabled = {loading}>{day}</button> 
                 </SelectButton>)}
                                 
               </div>
               
               <div className='submitButtons'>
 
-                <span data-test="habit-create-cancel-btn" onClick={cancelBox}>
+                <span 
+                  data-test="habit-create-cancel-btn" onClick={cancelBox}
+                  disabled = {loading}>
                   Cancelar
                 </span> 
 
-                <button data-test="habit-create-save-btn" onClick={(e) => handleSubmit(e)}>
+                <button 
+                  data-test="habit-create-save-btn" onClick={(e) => handleSubmit(e)}
+                  disabled = {loading}>
                   Salvar
                 </button>
 
@@ -150,7 +162,10 @@ function Habitos() {
     <HabitsContainer>
       <Top>
         <div>Meus hábitos</div>
-        <button data-test="habit-create-btn" onClick={() => {setShowFormBox(true)}}>+</button>
+        <button 
+          data-test="habit-create-btn" 
+          onClick={() => {setShowFormBox(true)}}
+          disabled = {loading}>+</button>
       </Top>
 
       {showForm()}
