@@ -118,3 +118,10 @@ export const Sequence = styled.div`
         font-size: 12px;
     }
 `
+
+export const Record = styled.div`
+    span {
+        color: ${props => props.color}
+    }
+
+`

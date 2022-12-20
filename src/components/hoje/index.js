@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect } from 'react'
-import { HabitsContainer, Top, Title, SubTitle, HabitsContent, Icon, Sequence } from './styles'
+import { HabitsContainer, Top, Title, SubTitle, HabitsContent, Icon, Sequence, Record } from './styles'
 import dayjs from 'dayjs'
 
 import { UserContext } from '../../context/userContext'
@@ -46,8 +46,9 @@ function Hoje() {
 
             <Sequence color = {habit.done? ('#8FC549') : ('#666666')} >
               <div data-test="today-habit-sequence" >Sequência atual: <span>{habit.currentSequence} dias</span></div>
-              <div data-test="today-habit-record" >Seu recorde: {habit.highestSequence} dias</div>
-
+              <Record color = {habit.currentSequence === habit.highestSequence? ('#8FC549') : ('#666666')}>
+                <div data-test="today-habit-record" >Seu recorde: <span>{habit.highestSequence} dias</span></div>
+              </Record>
             </Sequence>
 
 
