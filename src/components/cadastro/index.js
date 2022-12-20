@@ -33,11 +33,6 @@ function Cadastro({logo}) {
 
   }
 
-  if (loading){
-    return(
-      <RegisterContainer> <TailSpin color="#52B6FF" /> </RegisterContainer>
-    )
-  }  
   return (
     <RegisterContainer>
         <RegisterContent loading = {loading}>
@@ -76,10 +71,12 @@ function Cadastro({logo}) {
                   onChange={(event) => setImage(event.target.value) }
                   disabled = {loading}/>
 
-                <button 
+                <button className='register'
                   type='submit' 
                   data-test="signup-btn" 
-                  disabled = {loading}>Cadastrar</button>
+                  disabled = {loading}>
+                    Cadastrar <span>{loading? <TailSpin color="#FFFFFF" height= '20px' /> : null}</span>
+                </button>
                 <Link to ='/' data-test="login-link"> Já tem cadastro? Faça Login!</Link>
             </form>
         </RegisterContent>

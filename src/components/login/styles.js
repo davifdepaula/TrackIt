@@ -52,5 +52,11 @@ export const LoginContent = styled.div`
         a {
             color: #52B6FF;
         }
+
+        .register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 `

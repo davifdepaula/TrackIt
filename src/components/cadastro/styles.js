@@ -54,5 +54,15 @@ export const RegisterContent = styled.div`
         a {
             color: #52B6FF;
         }
+
+        .register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            TailSpin {
+                height: 12px;
+            }
+        }
     }
 `

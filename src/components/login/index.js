@@ -34,11 +34,6 @@ function Login({logo}) {
 
     }
 
-  if (loading){
-    return(
-      <LoginContainer> <TailSpin color="#52B6FF" /> </LoginContainer>
-    )
-  }  
   return (
     <LoginContainer>
         <LoginContent>
@@ -61,10 +56,12 @@ function Login({logo}) {
                   onChange={(event) => setPassword(event.target.value) }
                   disabled = {loading}/>
 
-                <button 
+                <button className='register'
                   type='submit' 
                   data-test="login-btn" 
-                  disabled = {loading}>Entrar</button>
+                  disabled = {loading}>
+                    Entrar <span>{loading? <TailSpin color="#FFFFFF" height= '20px' /> : null}</span>
+                  </button>
                 <Link 
                   to ='/cadastro' 
                   data-test="signup-link"
