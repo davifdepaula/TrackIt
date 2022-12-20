@@ -36,7 +36,7 @@ function Hoje() {
       return (
       habits.map((habit, index) => {
         return (
-          <HabitsContent key = {index} data-test="habit-container">
+          <HabitsContent key = {index} data-test="today-habit-container">
             <Title>
               <div data-test="today-habit-name" >{habit.name}</div>
               <Icon color = {habit.done? ('#8FC549') : ('#666666')}>
@@ -44,10 +44,10 @@ function Hoje() {
               </Icon>
             </Title>
 
-            <Sequence color = {habit.done? ('#8FC549') : ('#666666')} >
-              <div data-test="today-habit-sequence" >Sequência atual: <span>{habit.currentSequence} dias</span></div>
-              <Record color = {habit.currentSequence === habit.highestSequence? ('#8FC549') : ('#666666')}>
-                <div data-test="today-habit-record" >Seu recorde: <span>{habit.highestSequence} dias</span></div>
+            <Sequence  data-test="today-habit-sequence"  color = {habit.done? ('#8FC549') : ('#666666')} >
+              <div>Sequência atual: <span>{habit.currentSequence} dias</span></div>
+              <Record   data-test="today-habit-record" color = {habit.currentSequence === habit.highestSequence? ('#8FC549') : ('#666666')}>
+                <div>Seu recorde: <span>{habit.highestSequence} dias</span></div>
               </Record>
             </Sequence>
 
