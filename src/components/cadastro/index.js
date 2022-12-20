@@ -75,7 +75,9 @@ function Cadastro({logo}) {
                   type='submit' 
                   data-test="signup-btn" 
                   disabled = {loading}>
-                    Cadastrar <span>{loading? <TailSpin color="#FFFFFF" height= '20px' /> : null}</span>
+                    {loading? 
+                      <TailSpin color="#FFFFFF" height= '20px' /> 
+                      : <span onClick={handleSubmit}>Cadastrar</span>}
                 </button>
                 <Link to ='/' data-test="login-link"> Já tem cadastro? Faça Login!</Link>
             </form>

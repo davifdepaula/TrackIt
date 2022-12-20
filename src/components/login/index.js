@@ -60,7 +60,9 @@ function Login({logo}) {
                   type='submit' 
                   data-test="login-btn" 
                   disabled = {loading}>
-                    Entrar <span>{loading? <TailSpin color="#FFFFFF" height= '20px' /> : null}</span>
+                    {loading? 
+                      <TailSpin color="#FFFFFF" height= '20px' /> 
+                      :<span onClick={handleSubmit}>Entrar</span>}
                   </button>
                 <Link 
                   to ='/cadastro' 
