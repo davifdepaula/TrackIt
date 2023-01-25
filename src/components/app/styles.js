@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import {createGlobalStyle} from "styled-components"
 
-export const AppContainer = styled.div`
+export const GlobalStyle = createGlobalStyle`
     background: #E5E5E5;
-    height: 100vw;
+    height: 100vh;
 `

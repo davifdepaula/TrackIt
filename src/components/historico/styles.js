@@ -11,7 +11,7 @@ export const HistoricContainer = styled.div`
         display: flex;
         justify-content: flex-start;
         font-family: 'Lexend Deca';
-        margin: 10px auto;
+        margin: 10px;
 
     }
 

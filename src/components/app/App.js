@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {AppContainer} from './styles.js'
+import { GlobalStyle } from './styles.js'
 
 
 import logo from '../../assets/logo.png'
@@ -16,12 +16,10 @@ import Historico from "../historico"
 import { LoadingProvider } from "../../context/loadingContext.js"
 import { UserProvider } from "../../context/userContext"
 
-
-
-
 function App() {  
   return (
-    <AppContainer> 
+    <>
+    <GlobalStyle /> 
       <UserProvider>
         <LoadingProvider >     
           <BrowserRouter>
@@ -37,7 +35,7 @@ function App() {
           </BrowserRouter>        
         </LoadingProvider>
       </UserProvider>
-    </AppContainer>
+    </>
   )
 }
 

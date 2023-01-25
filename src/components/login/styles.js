@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 export const LoginContainer = styled.div`
     display: flex;
+    width: 100vw;
+    heigth: 100vh;
     justify-content: center;
     align-items: center;
     margin: 60px auto;
