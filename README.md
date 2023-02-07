@@ -54,7 +54,7 @@ Uma aplicação completa de acompanhamento de hábitos! Com direito a cadastro e
 :heavy_check_mark: Tela Cadastro;\
 :heavy_check_mark: Topo e Menu;\
 :heavy_check_mark: Tela Hábitos;\
-:heavy_check_mark: Tela Hoje;
+:heavy_check_mark: Tela Hoje;\
 :heavy_check_mark: Tela Histórico;
 
 ## :rocket: Tecnologias ##
